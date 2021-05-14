@@ -27,12 +27,12 @@ const App = () => {
   useEffect (() => {
     axios
       .get (url)
-      .then (res => {
-        setCharacters (res.data);
+      .then (response => {
+        setCharacters (response.data);
         // debugger
       })
-      .catch (err => {
-        console.log (err);
+      .catch (error => {
+        console.log (error);
         // debugger
       });
   }, []);

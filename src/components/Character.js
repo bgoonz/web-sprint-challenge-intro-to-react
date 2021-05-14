@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 
-import { StyledName, StyledData, DataDiv, ChildDiv, OutterContainer } from './styles';
+import { StyledName, ApiData, CharacterData, ChildDiv, OutterContainer } from './styles';
 
 
 export default function Characters ( props ) {
@@ -10,17 +10,18 @@ export default function Characters ( props ) {
   const [ display, toggleDisplay ] = useState( false );
 
 
+
   const Setup = ( props ) => (
     <OutterContainer>
       <StyledName onClick={ () => toggleDisplay( !display ) }>{ props.info.name }</StyledName>
       {display &&
-        <DataDiv >
+        <CharacterData >
           <ChildDiv>
-            <StyledData>Height: { props.info.height }<br /></StyledData>
-            <StyledData>Hair Color: { props.info[ 'hair_color' ] }<br /></StyledData>
-            <StyledData>Skin Color: { props.info[ 'skin_color' ] }<br /></StyledData>
+            <ApiData>Height: { props.info.height }<br /></ApiData>
+            <ApiData>Hair Color: { props.info[ 'hair_color' ] }<br /></ApiData>
+            <ApiData>Skin Color: { props.info[ 'skin_color' ] }<br /></ApiData>
           </ChildDiv>
-        </DataDiv>
+        </CharacterData>
       }
     </OutterContainer>
   );
