@@ -24,11 +24,11 @@ margin: 0 auto;
 export const OutterContainer = styled.div`
 width:40%;
 margin: 0 auto;
-    display:block;
+    showCharacter:block;
     text-align: left;
     width: 60%;
     margin-left:20%;
-    display:flex;
+    showCharacter:flex;
     justify-content:space-between;
     align-items: center;
     border:1px solid white;

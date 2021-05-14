@@ -7,14 +7,14 @@ import { StyledName, ApiData, CharacterData, ChildDiv, OutterContainer } from '.
 
 export default function Characters ( props ) {
   const { characters } = props;
-  const [ display, toggleDisplay ] = useState( false );
+  const [ showCharacter, toggleshowCharacter ] = useState( false );
 
 
 
   const Setup = ( props ) => (
     <OutterContainer>
-      <StyledName onClick={ () => toggleDisplay( !display ) }>{ props.info.name }</StyledName>
-      {display &&
+      <StyledName onClick={ () => toggleshowCharacter( !showCharacter ) }>{ props.info.name }</StyledName>
+      {showCharacter &&
         <CharacterData >
           <ChildDiv>
             <ApiData>Height: { props.info.height }<br /></ApiData>
@@ -33,8 +33,8 @@ export default function Characters ( props ) {
   return (
     <div>
       {
-        characters.map( ( character, i ) => {
-          return <Setup key={ i } info={ character } />
+        characters.map( ( character, idx ) => {
+          return <Setup key={ idx } info={ character } />
         } )
       }
     </div>
