@@ -22,6 +22,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import Character from './components/Character.js'
+import Grid from '@material-ui/core/Grid';
 
 const url = "https://swapi.dev/api/people";
 
@@ -44,8 +45,22 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
+      <Grid
+        container
+        spacing={ 0 }
+        direction="column"
+        alignItems="center"
+        justify="center"
+        style={ { minWidth: '200vh' } }
+      >
+        { Character.map( ( person ) => {
+          return ( <Grid item lg={ 3 }> <Character character={ person } /></Grid> )
+        } ) }
+      </Grid>
     </div>
   );
 }
+
+
 
 export default App;
