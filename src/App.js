@@ -53,8 +53,8 @@ const App = () => {
         justify="center"
         style={ { minWidth: '200vh' } }
       >
-        { Character.map( ( person ) => {
-          return ( <Grid item lg={ 3 }> <Character character={ person } /></Grid> )
+        { Character.map( ( character ) => {
+          return ( <Grid item lg={ 3 }> <Character character={ character } /></Grid> )
         } ) }
       </Grid>
     </div>
