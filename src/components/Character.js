@@ -1,80 +1,71 @@
 // Write your Character component here
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components'
 
 
 
-const useStyles = makeStyles( ( theme ) => ( {
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing( 4 ),
-  },
-} ) );
+
+const StyledName = styled.p`
+font-family: 'Press Start 2P', cursive;
+background-color:black;
+color:white;
+border-radius: 25px;
+padding 5%;
+
+&:hover {
+    color:#FFE81F;
+    background-color: #000000;
+    transition: all 1s ease-in-out;
+  }
+`
+const StyledData = styled.a`
+font-family: 'Cabin', sans-serif;
+color:white;
+//  border:1px solid grey; 
 
 
+`
+const DataDiv = styled.div`
+background-color:#000000;
+opacity:60%;
+padding:5%;
+text-align:left;
+`
+const ChildDiv = styled.div`
+width: 25%;
+margin: 0 auto;
+`
+const CharacterContainer = styled.div`
+width: 25%;
+margin: 0 auto;
+`
+export default function Characters ( props ) {
+  const { characters } = props;
+  const [ display, toggleDisplay ] = useState( false );
 
-// name: "C-3PO", height: "167", mass: "75", hair_color: "n/a", skin_color: "gold",
 
-const Character = props => {
-  // 🔥 Make sure the parent of Comment is passing the right props!
-  const { character } = props;
-  const classes = useStyles();
-  const [ open, setOpen ] = React.useState( false );
-
-  const handleClick = () => {
-    setOpen( !open );
-  };
+  const Setup = ( props ) => (
+    <CharacterContainer>
+      <StyledName onClick={ () => toggleDisplay( !display ) }>{ props.info.name }</StyledName>
+      {display &&
+        <DataDiv >
+          <ChildDiv>
+            <StyledData>Height: { props.info.height }<br /></StyledData>
+            <StyledData>Hair Color: { props.info[ 'hair_color' ] }<br /></StyledData>
+            <StyledData>Skin Color: { props.info[ 'skin_color' ] }<br /></StyledData>
+          </ChildDiv>
+        </DataDiv>
+      }
+    </CharacterContainer>
+  );
 
   return (
-    <List
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      className={ classes.root }
-      style={ { minWidth: '50vh' } }
-    >
-      <ListItem button onClick={ handleClick }>
-        <ListItemText primary={ character.name } />
-        { open ? <ExpandLess /> : <ExpandMore /> }
-      </ListItem>
-      <Collapse in={ open } timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={ classes.nested }>
-            <ListItemText primary={ "Gender: " + character.gender } />
-          </ListItem>
-          <ListItem button className={ classes.nested }>
-            <ListItemText primary={ "Height: " + character.height } />
-          </ListItem>
-          <ListItem button className={ classes.nested }>
-            <ListItemText primary={ "Mass: " + character.mass } />
-          </ListItem>
-          <ListItem button className={ classes.nested }>
-            <ListItemText primary={ "Birth Year: " + character.birth_year } />
-          </ListItem>
-          <ListItem button className={ classes.nested }>
-            <ListItemText primary={ "Eye Color: " + character.eye_color } />
-          </ListItem>
-          <ListItem button className={ classes.nested }>
-            <ListItemText primary={ "Hair Color: " + character.hair_color } />
-          </ListItem>
-          <ListItem button className={ classes.nested }>
-            <ListItemText primary={ "Skin Color: " + character.skin_color } />
-          </ListItem>
-        </List>
-      </Collapse>
-    </List>
+    <div>
+      {
+        characters.map( ( item, i ) => {
+          return <Setup key={ i } info={ item } />
+        } )
+      }
+    </div>
   );
-};
-
-
-export default Character;
+}
