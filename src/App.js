@@ -27,7 +27,7 @@ const url = "https://swapi.dev/api/people";
 
 const App = () => {
   const [ characters, setCharacters ] = useState( [] );
-  
+
   useEffect( () => {
     const fetchData = () => {
       axios.get( `https://swapi.dev/api/people/` )
@@ -35,12 +35,12 @@ const App = () => {
           console.log( response )
           setCharacters( response.data )
         } )
-        .catch( error => console.error( "failed to get Characters info:", error ) )
+        .catch( error => console.error( "failed fetch character:", error ) )
     }
     fetchData()
   }, [] )
 
-  
+
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
