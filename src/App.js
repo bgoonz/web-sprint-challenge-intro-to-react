@@ -32,7 +32,7 @@ const App = () => {
     const fetchData = () => {
       axios.get( `https://swapi.dev/api/people/` )
         .then( response => {
-          console.log( response )
+          console.error( response )
           setCharacters( response.data )
         } )
         .catch( error => console.error( "failed fetch character:", error ) )
