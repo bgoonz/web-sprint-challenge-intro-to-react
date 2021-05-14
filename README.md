@@ -28,9 +28,20 @@ In this challenge you will create a web page that presents a styled list of char
 
 In meeting the minimum viable product (MVP) specifications listed below, your project might look somewhat similar to the solution examples below:
 
+
+
+
 [Example](https://tk-assets.lambdaschool.com/b011a132-0916-4ed2-8955-14192de03a75_sample-screenshot.png)
 
+![another](./notes/another-example.png)
+
+
+
 [Another example](https://tk-assets.lambdaschool.com/3b82c793-2352-4d4d-a81d-e55bf350f7bd_sample-screenshot2.png)
+
+![ex](./notes/example.png)
+
+
 
 ### Instructions
 
