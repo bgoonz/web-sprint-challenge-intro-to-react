@@ -20,6 +20,10 @@ export default function Characters ( props ) {
             <ApiData>Height: { props.info.height }<br /></ApiData>
             <ApiData>Hair Color: { props.info[ 'hair_color' ] }<br /></ApiData>
             <ApiData>Skin Color: { props.info[ 'skin_color' ] }<br /></ApiData>
+            <ApiData>Mass: { props.info[ 'mass' ] }kg<br /></ApiData>
+            <ApiData>Birth year: { props.info[ 'birth_year' ] }<br /></ApiData>
+            <ApiData>Gender: { props.info[ 'gender' ] }kg<br /></ApiData>
+            <ApiData>Eye color: { props.info[ 'eye_color' ] }<br /></ApiData>
           </ChildDiv>
         </CharacterData>
       }
